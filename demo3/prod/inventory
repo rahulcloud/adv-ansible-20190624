@@ -1,0 +1,16 @@
+13.58.176.15  
+18.191.132.136
+
+[web]
+13.58.176.15  
+
+[db]
+18.191.132.136
+
+[datacenter-west:children]
+web
+db
+
+[datacenter-west:vars]
+ansible_ssh_user=ubuntu
+ansible_ssh_private_key_file=/root/.ssh/mykey.pem
