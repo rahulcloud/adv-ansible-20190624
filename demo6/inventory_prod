@@ -23,6 +23,10 @@
 [python3]
 3.15.29.7 
 
+[test]
+172.31.0.[10:20]
+web[01:20].example.com
+
 
 [datacenter-west:children]
 web
