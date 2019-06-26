@@ -1,6 +1,11 @@
 ---
 
 - hosts: web
+
+  vars: 
+    http_doc: "/var/www/html"
+    name: "Amit Vashist"
+  
   tasks:
   - name: Install Apache Packages on Ubuntu
     apt: name=apache2 state=present
@@ -18,7 +23,11 @@
     service: name=httpd state=started 
     when: ansible_os_family == "RedHat"
 
+  - name: Deploy Static WebPage. 
+    copy: src=files/index.html dest={{http_doc}}/index.html
 
+  - name: Deploy Dynamic WebPage. 
+    template: src=templates/info.j2 dest={{http_doc}}/info.html
 
 - hosts: db
   tasks:
