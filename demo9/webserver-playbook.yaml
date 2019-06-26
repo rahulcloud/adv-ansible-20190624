@@ -4,7 +4,10 @@
 
   vars: 
     http_doc: "/var/www/html"
-    name: "Test-03"
+
+  vars_prompt:
+  - name: name
+    prompt: What is the username you want use ?
   
   tasks:
   - name: Install Apache Packages on Ubuntu
@@ -39,7 +42,7 @@
   - name: Deploy Static WebPage. 
     copy: src=files/index.html dest={{http_doc}}/index.html
 
-
+  - debug: msg="The Username you supplied at prompt is :{{name}}"
 
   handlers:
   - name: Restart Apache2
