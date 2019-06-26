@@ -1,0 +1,32 @@
+    1  ls
+    2  cd adv-ansible-20190624/
+    3  ls
+    4  cp -rf demo5 demo6 
+    5  cd demo6 
+    6  ls
+    7  rm -rf test/
+    8  ls
+    9  cp -rf prod/inventory_prod  prod/ansible.cfg . 
+   10  ls
+   11  rm -rf prod
+   12  ls
+   13  vi inventory_prod 
+   14  ansible web -m ping 
+   15  ansible db -m ping 
+   16  ansible db:web -m ping 
+   17  ls
+   18  vim inventory_prod 
+   19  ansible db:web -m ping 
+   20  ansible web:&prod -m ping 
+   21  ansible 'web:&prod' -m ping 
+   22  vim inventory_prod 
+   23  ansible 'web:&prod' -m ping 
+   24  ansible 'web:&uat' -m ping 
+   25  vim inventory_prod 
+   26  ansible 'prod' -m ping 
+   27  ansible 'stage' -m ping 
+   28  ansible 'web:&stage' -m ping 
+   29  ansible 'web:&stage:!python3' -m ping 
+   30  git add . 
+   31  ls
+   32  history > history
