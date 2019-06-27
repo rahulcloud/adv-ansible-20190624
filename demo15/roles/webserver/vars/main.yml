@@ -1,0 +1,4 @@
+---
+# vars file for webserver
+http_doc: "/var/www/html/test1"
+name: Testing-Roles
