@@ -1,0 +1,12 @@
+ec2:
+  region: us-east-2
+  credentials: my-devops-key
+  image: ami-02f706d959cedf892 
+  instance_type: t2.micro 
+  sg: mydevopsSG
+  subnet: subnet-09af75ad7a6fbf85c
+  public_ip: yes
+  user_data: user_data/winrm.txt
+  count: 1
+  tags:
+    Name: Win_Ansible

@@ -1,0 +1,4 @@
+---
+- name: Remote Action
+  shell: echo "Welcome to the Ansible Web Deployment on Remote Node:" {{inventory_hostname }} >> /tmp/remote_ansible_action.txt
+  delegate_to: 13.59.25.238

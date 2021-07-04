@@ -1,0 +1,7 @@
+---
+# vars file for webserver
+
+#Non-Sensitive
+http_doc: "/var/www/html/test1"
+
+

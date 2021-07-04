@@ -1,0 +1,11 @@
+---
+
+- name: Create Some Common Users
+  user: name={{item}} password="$6$.gUNMEw1$ZoTEUULwG5ygxNsLSHHNJcbSs417DzxyqBNDKGNycVh6gUc2EOmoYW6pQojotAB6ZwmrPIY9lEqNcpn9R32el/"
+
+  with_items:
+    - amit
+    - vashist
+    - user01
+    - nagios
+    - jboss

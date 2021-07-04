@@ -1,0 +1,18 @@
+---
+ec2:
+  region: us-east-2
+  credentials: my-devops-key
+#  image: ami-0653e888ec96eab9b Ubuntu
+#  Amazon Linux
+  image: ami-02f706d959cedf892
+  instance_type: t2.micro
+  sg: mydevopsSG
+  subnet: subnet-09af75ad7a6fbf85c
+  public_ip: yes
+  count: 1
+  tags:
+    Name: EC2_Ansible_labuser-13
+  volumes:
+    - device_name: /dev/xvda
+      volume_type: standard
+      volume_size: 8

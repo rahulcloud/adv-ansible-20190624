@@ -1,0 +1,10 @@
+---
+- hosts: web
+  max_fail_percentage: 30
+  serial: 10
+  pre_tasks: 
+  - include: roles/webserver/tasks/local-action.yaml
+  roles: 
+  - webserver
+  post_tasks:
+  - include: roles/webserver/tasks/remote-action.yaml

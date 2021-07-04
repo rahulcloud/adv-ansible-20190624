@@ -1,0 +1,102 @@
+
+PLAY ***************************************************************************
+
+TASK [setup] *******************************************************************
+ok: [13.59.25.238]
+ok: [3.17.159.93]
+fatal: [3.15.29.7]: UNREACHABLE! => {"changed": false, "msg": "ERROR! SSH encountered an unknown error during the connection. We recommend you re-run the command using -vvvv, which will enable SSH debugging output to help diagnose the issue", "unreachable": true}
+
+TASK [server-common : include] *************************************************
+included: /root/adv-ansible-20190624/demo13/roles/server-common/tasks/common-user.yaml for 3.17.159.93, 13.59.25.238
+
+TASK [server-common : Create Some Common Users] ********************************
+ok: [13.59.25.238] => (item=amit)
+ok: [13.59.25.238] => (item=vashist)
+ok: [13.59.25.238] => (item=user01)
+ok: [13.59.25.238] => (item=nagios)
+ok: [13.59.25.238] => (item=jboss)
+ok: [3.17.159.93] => (item=amit)
+ok: [3.17.159.93] => (item=vashist)
+ok: [3.17.159.93] => (item=user01)
+ok: [3.17.159.93] => (item=nagios)
+ok: [3.17.159.93] => (item=jboss)
+
+TASK [server-common : include] *************************************************
+included: /root/adv-ansible-20190624/demo13/roles/server-common/tasks/firewall.yaml for 3.17.159.93, 13.59.25.238
+
+TASK [server-common : Stop the Firewall on RedHat] *****************************
+skipping: [3.17.159.93]
+skipping: [13.59.25.238]
+
+TASK [server-common : Stop the Firewall on Ubuntu] *****************************
+ok: [13.59.25.238]
+ok: [3.17.159.93]
+
+PLAY ***************************************************************************
+
+TASK [setup] *******************************************************************
+ok: [3.17.159.93]
+
+TASK [webserver : Install Apache Packages on Ubuntu] ***************************
+ok: [3.17.159.93]
+
+TASK [webserver : Start the Apache Service on Ubuntu] **************************
+ok: [3.17.159.93]
+
+TASK [webserver : Install Apache Packages on Redhat] ***************************
+skipping: [3.17.159.93]
+
+TASK [webserver : Start the Apache Service on Redhat] **************************
+skipping: [3.17.159.93]
+
+TASK [webserver : Checking the Document Root] **********************************
+changed: [3.17.159.93]
+
+TASK [webserver : debug] *******************************************************
+skipping: [3.17.159.93]
+
+TASK [webserver : Create New Document Root as specified.] **********************
+skipping: [3.17.159.93]
+
+TASK [webserver : Deploy Apache Custom Configuration] **************************
+ok: [3.17.159.93]
+
+TASK [webserver : Downlaod Background Image.] **********************************
+ok: [3.17.159.93]
+
+TASK [webserver : Deploy Dynamic WebPage.] *************************************
+changed: [3.17.159.93]
+
+TASK [webserver : Deploy Static WebPage.] **************************************
+ok: [3.17.159.93]
+
+TASK [webserver : debug] *******************************************************
+ok: [3.17.159.93] => {
+    "msg": "The Username you supplied at prompt is :Testing-Roles"
+}
+
+TASK [webserver : Local Action] ************************************************
+changed: [3.17.159.93 -> localhost]
+
+TASK [webserver : Remote Action] ***********************************************
+changed: [3.17.159.93 -> 13.59.25.238]
+
+PLAY ***************************************************************************
+
+TASK [setup] *******************************************************************
+ok: [13.59.25.238]
+
+TASK [dbserver : include] ******************************************************
+included: /root/adv-ansible-20190624/demo13/roles/dbserver/tasks/main1.yml for 13.59.25.238
+
+TASK [dbserver : Install Databases Packages] ***********************************
+ok: [13.59.25.238]
+
+TASK [dbserver : Start the Database Service] ***********************************
+ok: [13.59.25.238]
+
+PLAY RECAP *********************************************************************
+13.59.25.238               : ok=9    changed=0    unreachable=0    failed=0   
+3.15.29.7                  : ok=0    changed=0    unreachable=1    failed=0   
+3.17.159.93                : ok=16   changed=4    unreachable=0    failed=0   
+
